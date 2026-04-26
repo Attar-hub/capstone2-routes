@@ -17,7 +17,10 @@ class Auth extends BaseController
         $password = $this->request->getPost('password');
 
         if ($username == 'admin' && $password == '123') {
-            $session->set('username', $username);
+            $session->set([
+            'username'   => $username,
+            'isLoggedIn' => true,
+        ]);
             return redirect()->to('/home');
         } else {
             $session->setFlashdata('error', 'Username & Password Salah');
