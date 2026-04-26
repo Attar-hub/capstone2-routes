@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $title ?></title>
+    <title><?= $title ?? 'My App' ?></title>    
     <link href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.carousel.min.css') ?>" rel="stylesheet">
 <link href="<?= base_url('assets/libs/owl.carousel/dist/assets/owl.theme.default.min.css') ?>" rel="stylesheet">
 <link href="<?= base_url('assets/css/style.min.css') ?>" rel="stylesheet">

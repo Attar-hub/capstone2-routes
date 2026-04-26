@@ -14,6 +14,11 @@
                 <li class="sidebar-item"> 
                     <a class="sidebar-link" href="<?= base_url('home/about') ?>">About</a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= base_url('logout') ?>" style="color:red;">
+                        Logout
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
