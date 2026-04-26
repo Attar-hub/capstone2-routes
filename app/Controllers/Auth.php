@@ -17,9 +17,9 @@ class Auth extends BaseController
 
     if ($username == 'admin' && $password == '123') {
         $session->set([
-            'username'   => 'admin',
+            'username'   => 'Attar',
             'role'       => 'admin',
-            'email'      => 'admin@dsn.dinus.ac.id',
+            'email'      => '111202214857@dsn.dinus.ac.id',
             'logged_in'  => date('Y-m-d H:i:s'),
             'isLoggedIn' => true,
         ]);
