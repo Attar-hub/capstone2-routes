@@ -18,6 +18,6 @@ class Auth implements FilterInterface
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // Biarkan kosong
+        //
     }
 }

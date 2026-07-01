@@ -18,3 +18,4 @@ $routes->get('home/profile', 'Home::profile');
 $routes->get('login', 'Auth::login');
 $routes->post('login/process', 'Auth::process');
 $routes->get('logout', 'Auth::logout');
+$routes->get('produk', 'ProdukController::index');

@@ -48,30 +48,30 @@ class Home extends BaseController
     }
 
     public function keranjang()
-{
-    $keranjang = $this->session->get('keranjang') ?? [];
+    {
+        $keranjang = $this->session->get('keranjang') ?? [];
 
-    $produkList = [
-        1 => ['nama' => 'Produk 1', 'harga' => 10000],
-        2 => ['nama' => 'Produk 2', 'harga' => 20000],
-    ];
+        $produkList = [
+            1 => ['nama' => 'Produk 1', 'harga' => 10000],
+            2 => ['nama' => 'Produk 2', 'harga' => 20000],
+        ];
 
-    $data['keranjang'] = [];
-    $data['total'] = 0;
+        $data['keranjang'] = [];
+        $data['total'] = 0;
 
-    foreach ($keranjang as $id) {
-        if (isset($produkList[$id])) {
+        foreach ($keranjang as $id) {
+            if (isset($produkList[$id])) {
 
-            $produk = $produkList[$id];
-            $produk['id'] = $id;
+                $produk = $produkList[$id];
+                $produk['id'] = $id;
 
-            $data['keranjang'][] = $produk;
-            $data['total'] += $produk['harga'];
+                $data['keranjang'][] = $produk;
+                $data['total'] += $produk['harga'];
+            }
         }
-    }
 
-    return view('v_keranjang', $data);
-}
+        return view('v_keranjang', $data);
+    }
     public function hapus($id)
     {
         $keranjang = $this->session->get('keranjang') ?? [];
@@ -92,15 +92,15 @@ class Home extends BaseController
         session()->destroy();
         return redirect()->to('/login');
     }
-public function profile()
-{
-    $data = [
-        'username' => session()->get('username'),
-        'role'     => session()->get('role'),
-        'email'    => session()->get('email'),
-        'waktu'    => session()->get('logged_in'),
-    ];
-    return view('v_profile', $data);
-}
-}
+    public function profile()
+    {
+        $data = [
+            'username' => session()->get('username'),
+            'role'     => session()->get('role'),
+            'email'    => session()->get('email'),
+            'waktu'    => session()->get('logged_in'),
+        ];
+        return view('v_profile', $data);
+    }
+    }
 
