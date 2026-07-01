@@ -16,7 +16,9 @@
 <body>
 
     <h2>Daftar Produk Toko</h2>
-    
+    <a href="<?= base_url('produk/cetak'); ?>" style="padding: 10px; background-color: blue; color: white; text-decoration: none;">Cetak PDF</a>
+    <br><br>
+
     <thead>
     <tr>
         <th>ID</th>
@@ -40,9 +42,10 @@
         <td>
             <a href="<?= base_url('produk/edit/' . $p['id']); ?>">Edit</a>
         <td>
+    <a href="<?= base_url('produk/tambahKeranjang/' . $p['id']); ?>">Beli</a> |
     <a href="<?= base_url('produk/edit/' . $p['id']); ?>">Edit</a> | 
     <a href="<?= base_url('produk/hapus/' . $p['id']); ?>" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
-</td>
+        </td>
     </tr>
     <?php endforeach; ?>
 </tbody>

@@ -1,29 +1,19 @@
-<?= $this->extend('layout/v_wrapper') ?>
-
-<?= $this->section('content') ?>
-
-<div class="card p-4">
-    <h1 class="text-success">Keranjang Belanja</h1>
-    <hr>
-
-    <?php if (!empty($keranjang)) : ?>
-        <ul>
-            <?php foreach ($keranjang as $item) : ?>
-            <li>
-    <?= $item['nama']; ?> - Rp<?= number_format($item['harga']); ?>
-
-    <a href="<?= base_url('home/hapus/' . $item['id']); ?>"
-        style="color:red; margin-left:10px;">
-        Hapus 
-        <a>
-        </a>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-        <p><b>Total: Rp <?= number_format($total, 0, ',', '.') ?></b></p>
-    <?php else : ?>
-        <p>Keranjang masih kosong</p>
-    <?php endif; ?>
-</div>
-
-<?= $this->endSection() ?>
+<h2>Keranjang Belanja</h2>
+<table border="1">
+    <tr>
+        <th>Nama Produk</th>
+        <th>Harga</th>
+    </tr>
+    <?php 
+    $cart = session()->get('cart');
+    if ($cart) :
+        foreach ($cart as $item) : ?>
+        <tr>
+            <td><?= $item['nama_produk']; ?></td>
+            <td>Rp <?= number_format($item['harga'], 0, ',', '.'); ?></td>
+        </tr>
+    <?php endforeach; 
+    endif; ?>
+</table>
+<br>
+<a href="<?= base_url('produk'); ?>">Kembali Belanja</a>

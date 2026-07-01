@@ -25,3 +25,6 @@ $routes->post('produk/simpan', 'ProdukController::simpan');
 $routes->get('produk/edit/(:num)', 'ProdukController::edit/$1');
 $routes->post('produk/update/(:num)', 'ProdukController::update/$1');
 $routes->get('produk/hapus/(:num)', 'ProdukController::hapus/$1');
+$routes->get('produk/cetak', 'ProdukController::cetakPdf');
+$routes->get('produk/tambahKeranjang/(:num)', 'ProdukController::tambahKeranjang/$1');
+$routes->get('produk/keranjang', 'ProdukController::tampilKeranjang');

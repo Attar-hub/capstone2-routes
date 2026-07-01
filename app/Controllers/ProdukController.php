@@ -97,4 +97,41 @@ class ProdukController extends BaseController
 
         return redirect()->to('/produk')->with('success', 'Data berhasil dihapus!');
     }
+    use Dompdf\Dompdf; // Tambahkan baris ini di paling atas file (sebelum class)
+
+// ... di dalam class ProdukController ...
+
+    public function cetakPdf()
+    {
+        $produkModel = new ProdukModel();
+        $data['semua_produk'] = $produkModel->findAll();
+
+        $dompdf = new \Dompdf\Dompdf();
+        $html = view('v_cetak_produk', $data); 
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $dompdf->stream("laporan_produk.pdf");
+    }
+    public function tambahKeranjang($id)
+    {
+        $produkModel = new ProdukModel();
+        $produk = $produkModel->find($id);
+
+        $session = session();
+        $cart = $session->get('cart') ?? [];
+
+        // Masukkan produk ke array cart
+        $cart[] = $produk;
+
+        $session->set('cart', $cart);
+
+        return redirect()->to('/produk')->with('success', 'Produk masuk ke keranjang!');
+    }
+
+    public function tampilKeranjang()
+    {
+    return view('v_keranjang');
+    }
+    
 }
