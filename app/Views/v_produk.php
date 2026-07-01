@@ -17,25 +17,35 @@
 
     <h2>Daftar Produk Toko</h2>
     
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama Produk</th>
-                <th>Harga</th>
-                <th>Deskripsi</th>
-            </tr>
-        </thead>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nama Produk</th>
+        <th>Harga</th>
+        <th>Deskripsi</th>
+        <th>Aksi</th> <!-- Tambahkan ini -->
+    </tr>
+    </thead>
         <tbody>
-            <?php foreach ($semua_produk as $p): ?>
-            <tr>
-                <td><?= $p['id']; ?></td>
-                <td><a href="<?= base_url('produk/detail/' . $p['id']); ?>"><?= $p['nama_produk']; ?></a></td>
-                <td>Rp <?= number_format($p['harga'], 0, ',', '.'); ?></td>
-                <td><?= $p['deskripsi']; ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
+    <?php foreach ($semua_produk as $p): ?>
+    <tr>
+        <td><?= $p['id']; ?></td>
+        <td>
+            <a href="<?= base_url('produk/detail/' . $p['id']); ?>">
+                <?= $p['nama_produk']; ?>
+            </a>
+        </td>
+        <td>Rp <?= number_format($p['harga'], 0, ',', '.'); ?></td>
+        <td><?= $p['deskripsi']; ?></td>
+        <td>
+            <a href="<?= base_url('produk/edit/' . $p['id']); ?>">Edit</a>
+        <td>
+    <a href="<?= base_url('produk/edit/' . $p['id']); ?>">Edit</a> | 
+    <a href="<?= base_url('produk/hapus/' . $p['id']); ?>" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
+</td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
     </table>
 
 </body>

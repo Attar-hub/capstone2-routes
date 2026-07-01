@@ -22,3 +22,6 @@ $routes->get('produk', 'ProdukController::index');
 $routes->get('produk/detail/(:num)', 'ProdukController::detail/$1');
 $routes->get('produk/tambah', 'ProdukController::tambah');
 $routes->post('produk/simpan', 'ProdukController::simpan');
+$routes->get('produk/edit/(:num)', 'ProdukController::edit/$1');
+$routes->post('produk/update/(:num)', 'ProdukController::update/$1');
+$routes->get('produk/hapus/(:num)', 'ProdukController::hapus/$1');

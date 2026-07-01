@@ -67,4 +67,34 @@ class ProdukController extends BaseController
 
         return redirect()->to('/produk')->with('success', 'Data berhasil ditambahkan!');
     }
+    public function edit($id)
+    {
+        $produkModel = new ProdukModel();
+        $data['produk'] = $produkModel->find($id);
+
+        return view('v_edit_produk', $data);
+    }
+
+    public function update($id)
+    {
+        $produkModel = new ProdukModel();
+
+        // Update data berdasarkan ID
+        $produkModel->update($id, [
+            'nama_produk' => $this->request->getPost('nama_produk'),
+            'harga'       => $this->request->getPost('harga'),
+            'deskripsi'   => $this->request->getPost('deskripsi'),
+        ]);
+
+        return redirect()->to('/produk')->with('success', 'Data berhasil diupdate!');
+    }
+    public function hapus($id)
+    {
+        $produkModel = new ProdukModel();
+        
+        // Menghapus data berdasarkan ID
+        $produkModel->delete($id);
+
+        return redirect()->to('/produk')->with('success', 'Data berhasil dihapus!');
+    }
 }
