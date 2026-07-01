@@ -19,3 +19,6 @@ $routes->get('login', 'Auth::login');
 $routes->post('login/process', 'Auth::process');
 $routes->get('logout', 'Auth::logout');
 $routes->get('produk', 'ProdukController::index');
+$routes->get('produk/detail/(:num)', 'ProdukController::detail/$1');
+$routes->get('produk/tambah', 'ProdukController::tambah');
+$routes->post('produk/simpan', 'ProdukController::simpan');

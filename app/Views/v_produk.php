@@ -30,7 +30,7 @@
             <?php foreach ($semua_produk as $p): ?>
             <tr>
                 <td><?= $p['id']; ?></td>
-                <td><?= $p['nama_produk']; ?></td>
+                <td><a href="<?= base_url('produk/detail/' . $p['id']); ?>"><?= $p['nama_produk']; ?></a></td>
                 <td>Rp <?= number_format($p['harga'], 0, ',', '.'); ?></td>
                 <td><?= $p['deskripsi']; ?></td>
             </tr>
